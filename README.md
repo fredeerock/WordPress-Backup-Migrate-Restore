@@ -47,12 +47,12 @@ Change domain name:
 - `use wordpress`
 - `show tables;`
 - Double check old domain name. You may need to change table prefix.
-- `select * from wp_options where option_id = 1;`
-- `select * from wp_options where option_id = 2;`
-- `select * from wp_options where option_value = ‘http://www.olddomain.com/wordpress’;`
+  - `select * from wp_options where option_id = 1;`
+  - `select * from wp_options where option_id = 2;`
+  - `select * from wp_options where option_value = ‘http://www.olddomain.com/wordpress’;`
 - Set the new domain name
-- `update wp_options set option_value = ‘http://www.newdomain.com’ where option_id = 1;`
-- `update wp_options set option_value = ‘http://www.newdomain.com’ where option_id = 2;`
+  - `update wp_options set option_value = ‘http://www.newdomain.com’ where option_id = 1;`
+  - `update wp_options set option_value = ‘http://www.newdomain.com’ where option_id = 2;`
 
 Sometimes there are prefix issues if there's an existing wp install. Updating the prefix can help:
 - ``UPDATE `newprefix_usermeta` SET `meta_key` = REPLACE( `meta_key` , 'oldprefix_', 'newprefix_' );``
