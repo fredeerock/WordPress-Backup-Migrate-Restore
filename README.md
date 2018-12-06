@@ -3,10 +3,10 @@
 ## Backup WordPress. 
 
 Find the db-host, db-username, and db-name from wp-config.php. While there note the table_prefix value. 
-`mysqldump --column-statistics=0 -h <db-host> -u <db-username> -p <db-name> | tar -cvzf wordpressdb.sql.tar.gz`
+- `mysqldump --column-statistics=0 -h <db-host> -u <db-username> -p <db-name> | tar -cvzf wordpressdb.sql.tar.gz`
 
 Archive the whole WordPress file direcotry.
-  `tar -czvf <wordpress-dir> wordpressfiles.tar.gz`
+- `tar -czvf <wordpress-dir> wordpressfiles.tar.gz`
 
 Move these 2 files somwhere safe.
 
