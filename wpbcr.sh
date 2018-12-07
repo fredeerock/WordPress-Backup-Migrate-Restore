@@ -5,8 +5,13 @@ backup() {
     mysqldump --column-statistics=0 -h $TWO -u $THREE -p $FOUR | gzip > backup.sql.gz
 }
 
-migrate() {
-    echo "Migrating..."
+backupcurrent() {
+    mysqldump --column-statistics=0 -h $TWO -u $THREE -p $FOUR | gzip > backup.sql.gz
+    tar -czvf wordpressfiles.tar.gz .
+}
+
+create() {
+    echo "Creating New..."
 }
 
 restore() {
@@ -28,9 +33,14 @@ then
     backup 
 fi
 
-if [ $1 == "migrate" ]
+if [ $1 == "backupcurrent" ] || [ $1 == "bc" ]
 then
-    migrate
+    backupcurrent 
+fi
+
+if [ $1 == "create" ]
+then
+    create
 fi
 
 if [ $1 == "restore" ]

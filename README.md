@@ -1,4 +1,4 @@
-# WordPress Backup/Migrate/Restore Guide
+# WordPress Backup/Create/Restore Guide
 
 ## Backup WordPress. 
 
@@ -10,7 +10,7 @@ Archive the whole WordPress file direcotry.
 
 Move these 2 files somwhere safe.
 
-## Migrate to new WordPress Install and DB
+## Create new WordPress Install and DB
 
 Let's use Docker as an example, but this should work for other servers as well.
 - `docker run -v ~/Desktop:/root -p 8082:80 -p 3307:3306 -t -i linode/lamp /bin/bash`
@@ -54,7 +54,7 @@ Change domain name:
   - `select * from wp_options where option_value = ‘http://www.olddomain.com/wp’;`
 - Set the new domain name
   - `update wp_options set option_value = ‘http://127.0.0.1:8082’ where option_name = 'siteurl';`
-  - `update wp_options set option_value = ‘http://127.0.0.1:8082’ where option_name = 'home';`
+  - `update wp_options set option_value = ‘http://127.0.0.1:8082/wp’ where option_name = 'home';`
 
 Change wp-config.
 - change `wp-config.php` settings to match.
